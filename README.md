@@ -25,6 +25,21 @@ let filter = new RaddecFilter({ acceptedTransmitterIdTypes:
                                                 acceptedTransmitterIdTypes });
 ```
 
+### acceptedReceiverIdTypes
+
+Array of receiverIdTypes to accept.  A filtered raddec must have its strongest receiver's receiverIdType included in the list to pass.
+
+```javascript
+const Raddec = require('raddec');
+const RaddecFilter = require('raddec-filter');
+
+let acceptedReceiverIdTypes = [ Raddec.identifiers.TYPE_EUI64,
+                                Raddec.identifiers.TYPE_EUI48 ];
+
+let filter = new RaddecFilter({ acceptedReceiverIdTypes:
+                                                   acceptedReceiverIdTypes });
+```
+
 ### acceptedEvents
 
 Index list (array) of events to accept.  A filtered raddec must include _at least one_ of these events to pass.
