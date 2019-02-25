@@ -9,6 +9,22 @@ Filter properties
 
 The following properties are supported.
 
+### acceptedTransmitterIdTypes
+
+Array of transmitterIdTypes to accept.  A filtered raddec must have a transmitterIdType included in the list to pass.
+
+```javascript
+const Raddec = require('raddec');
+const RaddecFilter = require('raddec-filter');
+
+let acceptedTransmitterIdTypes = [ Raddec.identifiers.TYPE_EUI64,
+                                   Raddec.identifiers.TYPE_EUI48,
+                                   Raddec.identifiers.TYPE_RND48 ];
+
+let filter = new RaddecFilter({ acceptedTransmitterIdTypes:
+                                                acceptedTransmitterIdTypes });
+```
+
 ### acceptedEvents
 
 Index list (array) of events to accept.  A filtered raddec must include _at least one_ of these events to pass.
@@ -20,7 +36,6 @@ const RaddecFilter = require('raddec-filter');
 let acceptedEvents = [ Raddec.events.APPEARANCE, Raddec.events.DISPLACEMENT ];
 
 let filter = new RaddecFilter({ acceptedEvents: acceptedEvents });
-
 ```
 
 
