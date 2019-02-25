@@ -40,6 +40,21 @@ let filter = new RaddecFilter({ acceptedTransmitterIdTypes:
                                                 acceptedTransmitterIdTypes });
 ```
 
+### acceptedReceiverSignatures
+
+Array of receiver signatures to accept.  A filtered raddec must have its strongest receiver's signature (receiverId and receiverIdType) included in the list to pass.
+
+```javascript
+const Raddec = require('raddec');
+const RaddecFilter = require('raddec-filter');
+
+let acceptedReceiverSignatures = [ '112233445566/2',
+                                   '001bc50940810000/1' ];
+
+let filter = new RaddecFilter({ acceptedReceiverSignatures:
+                                                acceptedReceiverSignatures });
+```
+
 ### acceptedReceiverIdTypes
 
 Array of receiverIdTypes to accept.  A filtered raddec must have its strongest receiver's receiverIdType included in the list to pass.
