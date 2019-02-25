@@ -9,6 +9,21 @@ Filter properties
 
 The following properties are supported.
 
+### acceptedTransmitterSignatures
+
+Array of transmitter signatures to accept.  A filtered raddec must have its transmitter signature (transmitterId and transmitterIdType) included in the list to pass.
+
+```javascript
+const Raddec = require('raddec');
+const RaddecFilter = require('raddec-filter');
+
+let acceptedTransmitterSignatures = [ 'aabbccddeeff/2',
+                                      '001bc50940100000/1' ];
+
+let filter = new RaddecFilter({ acceptedTransmitterSignatures:
+                                             acceptedTransmitterSignatures });
+```
+
 ### acceptedTransmitterIdTypes
 
 Array of transmitterIdTypes to accept.  A filtered raddec must have a transmitterIdType included in the list to pass.
