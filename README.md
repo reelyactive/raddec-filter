@@ -4,6 +4,31 @@ raddec-filter
 Filter for raddecs based on a standardised set of parameters.
 
 
+Hello raddec-filter!
+--------------------
+
+```javascript
+const Raddec = require('raddec');
+const RaddecFilter = require('raddec-filter');
+
+let parameters = {
+    acceptedTransmitterSignatures: [ 'aabbccddeeff/2', '112233445566/2' ],
+    acceptedTransmitterIdTypes: [ Raddec.identifiers.TYPE_EUI48 ],
+    acceptedReceiverSignatures: [ '001bc50940810000/1' ],
+    acceptedReceiverIdTypes: [ Raddec.identifiers.TYPE_EUI64 ],
+    acceptedEvents: [ Raddec.events.APPEARANCE, Raddec.events.DISPLACEMENT ]
+}
+
+let filter = new RaddecFilter(parameters);
+
+let raddec = new Raddec({ /* Raddec properties */ });
+
+let accepted = filter.isPassing(raddec);
+
+console.log(accepted); // true or false
+```
+
+
 Filter properties
 -----------------
 
