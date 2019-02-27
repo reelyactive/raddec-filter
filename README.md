@@ -71,7 +71,7 @@ let acceptedReceiverIdTypes = [ Raddec.identifiers.TYPE_EUI64,
 
 ### acceptedEvents
 
-Index list (array) of events to accept.  A filtered raddec must include _at least one_ of these events to pass.  For example, to only allow raddecs that correspond with appearance or displacement events to pass:
+Index list (array) of events to accept.  See the [raddec event types](https://github.com/reelyactive/raddec/#event-types) for details.  A filtered raddec must include _at least one_ of these events to pass.  For example, to only allow raddecs that correspond with appearance or displacement events to pass:
 
 ```javascript
 let acceptedEvents = [ Raddec.events.APPEARANCE, Raddec.events.DISPLACEMENT ];
