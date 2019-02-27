@@ -1,7 +1,7 @@
 raddec-filter
 =============
 
-Filter for raddecs based on a standardised set of parameters.
+Filter for [raddecs](https://github.com/reelyactive/raddec/) based on a standardised set of parameters.
 
 
 Hello raddec-filter!
@@ -29,83 +29,52 @@ console.log(accepted); // true or false
 ```
 
 
-Filter properties
+Filter parameters
 -----------------
 
-The following properties are supported.
+The following parameters are supported:
 
 ### acceptedTransmitterSignatures
 
-Array of transmitter signatures to accept.  A filtered raddec must have its transmitter signature (transmitterId and transmitterIdType) included in the list to pass.
+Array of transmitter signatures to accept.  A filtered raddec must have its transmitter signature (transmitterId and transmitterIdType) included in the list to pass.  For example, to only allow raddecs from a transmitter with EUI-48 identifier aa:bb:cc:dd:ee:ff to pass:
 
 ```javascript
-const Raddec = require('raddec');
-const RaddecFilter = require('raddec-filter');
-
-let acceptedTransmitterSignatures = [ 'aabbccddeeff/2',
-                                      '001bc50940100000/1' ];
-
-let filter = new RaddecFilter({ acceptedTransmitterSignatures:
-                                             acceptedTransmitterSignatures });
+let acceptedTransmitterSignatures = [ 'aabbccddeeff/2' ];
 ```
 
 ### acceptedTransmitterIdTypes
 
-Array of transmitterIdTypes to accept.  A filtered raddec must have a transmitterIdType included in the list to pass.
+Array of transmitterIdTypes to accept.  See the [raddec identifier types](https://github.com/reelyactive/raddec/#identifier-types) for details.  A filtered raddec must have a transmitterIdType included in the list to pass.  For example, to only allow raddecs from transmitters with EUI-64, EUI-48 and random 48-bit identifiers to pass:
 
 ```javascript
-const Raddec = require('raddec');
-const RaddecFilter = require('raddec-filter');
-
 let acceptedTransmitterIdTypes = [ Raddec.identifiers.TYPE_EUI64,
                                    Raddec.identifiers.TYPE_EUI48,
                                    Raddec.identifiers.TYPE_RND48 ];
-
-let filter = new RaddecFilter({ acceptedTransmitterIdTypes:
-                                                acceptedTransmitterIdTypes });
 ```
 
 ### acceptedReceiverSignatures
 
-Array of receiver signatures to accept.  A filtered raddec must have its strongest receiver's signature (receiverId and receiverIdType) included in the list to pass.
+Array of receiver signatures to accept.  A filtered raddec must have its strongest receiver's signature (receiverId and receiverIdType) included in the list to pass.  For example, to only allow raddecs with strongest receiver with EUI-64 identifier 00-1b-c5-09-40-81-00-00 to pass:
 
 ```javascript
-const Raddec = require('raddec');
-const RaddecFilter = require('raddec-filter');
-
-let acceptedReceiverSignatures = [ '112233445566/2',
-                                   '001bc50940810000/1' ];
-
-let filter = new RaddecFilter({ acceptedReceiverSignatures:
-                                                acceptedReceiverSignatures });
+let acceptedReceiverSignatures = [ '001bc50940810000/1' ];
 ```
 
 ### acceptedReceiverIdTypes
 
-Array of receiverIdTypes to accept.  A filtered raddec must have its strongest receiver's receiverIdType included in the list to pass.
+Array of receiverIdTypes to accept.  See the [raddec identifier types](https://github.com/reelyactive/raddec/#identifier-types) for details.  A filtered raddec must have its strongest receiver's receiverIdType included in the list to pass.  For example, to only allow raddecs decoded strongest by receivers with EUI-64 and EUI-48 identifiers to pass:
 
 ```javascript
-const Raddec = require('raddec');
-const RaddecFilter = require('raddec-filter');
-
 let acceptedReceiverIdTypes = [ Raddec.identifiers.TYPE_EUI64,
                                 Raddec.identifiers.TYPE_EUI48 ];
-
-let filter = new RaddecFilter({ acceptedReceiverIdTypes:
-                                                   acceptedReceiverIdTypes });
 ```
 
 ### acceptedEvents
 
-Index list (array) of events to accept.  A filtered raddec must include _at least one_ of these events to pass.
+Index list (array) of events to accept.  A filtered raddec must include _at least one_ of these events to pass.  For example, to only allow raddecs that correspond with appearance or displacement events to pass:
 
 ```javascript
-const Raddec = require('raddec');
-const RaddecFilter = require('raddec-filter');
-
 let acceptedEvents = [ Raddec.events.APPEARANCE, Raddec.events.DISPLACEMENT ];
-
-let filter = new RaddecFilter({ acceptedEvents: acceptedEvents });
 ```
 
 
