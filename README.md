@@ -16,7 +16,9 @@ let parameters = {
     acceptedTransmitterIdTypes: [ Raddec.identifiers.TYPE_EUI48 ],
     acceptedReceiverSignatures: [ '001bc50940810000/1' ],
     acceptedReceiverIdTypes: [ Raddec.identifiers.TYPE_EUI64 ],
-    acceptedEvents: [ Raddec.events.APPEARANCE, Raddec.events.DISPLACEMENT ]
+    acceptedEvents: [ Raddec.events.APPEARANCE, Raddec.events.DISPLACEMENT ],
+    minRSSI: -85,
+    maxRSSI: -30
 }
 
 let filter = new RaddecFilter(parameters);
@@ -75,6 +77,15 @@ Index list (array) of events to accept.  See the [raddec event types](https://gi
 
 ```javascript
 let acceptedEvents = [ Raddec.events.APPEARANCE, Raddec.events.DISPLACEMENT ];
+```
+
+### minRSSI and maxRSSI
+
+Integer threshold of RSSI (signal strength) to accept.  A filtered raddec must have a strongest receiver which passes any and all thresholds.  For example, to allow only raddecs with strongest receiver having RSSI in the range of -85 to -60 dBm (inclusive):
+
+```javascript
+let minRSSI = -85;
+let maxRSSI = -60;
 ```
 
 
