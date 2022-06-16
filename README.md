@@ -17,6 +17,7 @@ let parameters = {
     acceptedReceiverSignatures: [ '001bc50940810000/1' ],
     acceptedReceiverIdTypes: [ Raddec.identifiers.TYPE_EUI64 ],
     acceptedEvents: [ Raddec.events.APPEARANCE, Raddec.events.DISPLACEMENT ],
+    acceptedPackets: [ '1234', /abcd/ ],
     minRSSI: -85,
     maxRSSI: -30
 }
@@ -77,6 +78,14 @@ Index list (array) of events to accept.  See the [raddec event types](https://gi
 
 ```javascript
 let acceptedEvents = [ Raddec.events.APPEARANCE, Raddec.events.DISPLACEMENT ];
+```
+
+### acceptedPackets
+
+Index list (array) of packets to accept.  Each element in the array can be either a String or a RegExp.  A filtered raddec must include _at least one_ of these packets to pass.  For example, to only allow raddecs with packets that are exactly '1234' _or_ contain 'abcd':
+
+```javascript
+let acceptedPackets = [ '1234', /abcd/ ];
 ```
 
 ### minRSSI and maxRSSI
