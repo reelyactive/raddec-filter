@@ -1,7 +1,9 @@
 raddec-filter
 =============
 
-Filter for [raddecs](https://github.com/reelyactive/raddec/) based on a standardised set of parameters.
+A __raddec-filter__ facilitates the filtering of radio decoding (__raddec__) data data based on a standardised set of parameters.
+
+__raddec-filter__ is a lightweight [Node.js package](https://www.npmjs.com/package/raddec-filter) that is typically used with a [barnacles](https://github.com/reelyactive/barnacles) instance and the barnacles-x family of modules which relay __raddec__ data to specific endpoints.  Together these packages are core components of reelyActive's [Pareto Anywhere](https://www.reelyactive.com/pareto/anywhere/) open source IoT middleware.
 
 
 Hello raddec-filter!
