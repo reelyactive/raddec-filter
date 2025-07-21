@@ -47,6 +47,14 @@ Array of transmitter signatures to accept.  A filtered raddec must have its tran
 let acceptedTransmitterSignatures = [ 'aabbccddeeff/2' ];
 ```
 
+### acceptedTransmitterIds
+
+Array of transmitterIds to accept.  A filtered raddec must have a transmitterId included in the list to pass.  For example, to only allow raddecs from transmitters with the identifier aa:bb:cc:dd:ee:ff to pass:
+
+```javascript
+let acceptedTransmitterIds = [ 'aabbccddeeff' ];
+```
+
 ### acceptedTransmitterIdTypes
 
 Array of transmitterIdTypes to accept.  See the [raddec identifier types](https://github.com/reelyactive/raddec/#identifier-types) for details.  A filtered raddec must have a transmitterIdType included in the list to pass.  For example, to only allow raddecs from transmitters with EUI-64, EUI-48 and random 48-bit identifiers to pass:
