@@ -5,6 +5,8 @@ A __raddec-filter__ facilitates the filtering of radio decoding (__raddec__) dat
 
 __raddec-filter__ is a lightweight [Node.js package](https://www.npmjs.com/package/raddec-filter) that is typically used with a [barnacles](https://github.com/reelyactive/barnacles) instance and the barnacles-x family of modules which relay __raddec__ data to specific endpoints.  Together these packages are core components of reelyActive's [Pareto Anywhere](https://www.reelyactive.com/pareto/anywhere/) open source IoT middleware.
 
+See also the __raddec-filter__'s sister modules, [dynamb-filter](https://github.com/reelyactive/dynamb-filter) and [spatem-filter](https://github.com/reelyactive/spatem-filter).
+
 
 Hello raddec-filter!
 --------------------
@@ -106,6 +108,12 @@ Integer threshold of RSSI (signal strength) to accept.  A filtered raddec must h
 let minRSSI = -85;
 let maxRSSI = -60;
 ```
+
+
+Filter logic
+------------
+
+The __raddec-filter__ will iterate sequentially through each included filter parameter, and return `false` if _any_ should fail.  If _all_ included filter parameters are passing, the __raddec-filter__ will return `true`.
 
 
 Contributing
